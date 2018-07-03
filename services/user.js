@@ -4,6 +4,14 @@ const addUser = user => {
   return Users.create(user);
 };
 
+const updateUser = user => {
+  console.log("user", user);
+  return Users.update(
+    { hh: user.hh,
+      ok: user.ok
+    },
+    {where:{id: user.id}});
+}
 const getUserByUsername = async username => {
   const user = await Users.findOne({
     where: { username },
@@ -17,7 +25,7 @@ const getUserById = async id => {
   const user = await Users.findOne({
     where: { id },
     raw: true,
-    attributes: ['id', 'name', 'username']
+    attributes: ['id', 'name', 'username', "hh", "ok"]
   });
 
   return user;
@@ -32,5 +40,6 @@ module.exports = {
   addUser,
   getUserByUsername,
   getUserById,
-  getAllUsers
+  getAllUsers,
+  updateUser
 };
