@@ -6,7 +6,7 @@ This is the repo for the server for the famous Croatian Crime Court application.
 
 * [NodeJS](https://nodejs.org)
 * [PostgreSQL](https://www.postgresql.org/)
-* 
+* [Postico](https://eggerapps.at/postico/) (optional but a nice tool to debug the database)
 
 # Getting started
 
@@ -17,5 +17,5 @@ the postgres command line and run `CREATE DATABASE ccc`.
 
 # Start server
 
-The server is started by running `node index.js`. All postgres models, associations etc. are created and also
-seeded with some dummy data. 
+The server is started by running `node index.js`. All postgres models, associations etc. are created through 
+the sequelize ORM and also seeded with some dummy data. 
