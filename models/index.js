@@ -60,11 +60,27 @@ const Option = sequelize.define('option', {
   }
 });
 
+const Vote = sequelize.define('vote', {
+  id: {
+    type: Sequelize.INTEGER,
+    autoIncrement: true,
+    primaryKey: true
+  },
+  ok: {
+    type: Sequelize.INTEGER,
+    allowNull: false
+  }
+});
+
 Poll.belongsTo(User);
 Poll.hasMany(Option);
+
+User.hasMany(Vote);
+Option.hasMany(Vote);
 
 module.exports = {
   User,
   Poll,
-  Option
+  Option,
+  Vote
 };

@@ -11,6 +11,7 @@ const authenticate = params => {
     },
     raw: true
   }).then(user => {
+    console.log(user);
     if (!user) throw new Error('Authentication failed. User not found');
     if (params.password !== user.password)
       throw new Error('Authentication failed. Wrong password');
@@ -18,7 +19,8 @@ const authenticate = params => {
     const payload = {
       username: user.username,
       id: user.id,
-      name: user.name
+      name: user.name,
+      ok: user.ok
     };
 
     var token = jwt.sign(payload, config.jwtSecret, {
