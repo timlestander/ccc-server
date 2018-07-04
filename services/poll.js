@@ -3,7 +3,18 @@ const Options = require('../models').Option;
 const Votes = require('../models').Vote;
 
 const getAllPolls = async () => {
-  const polls = await Polls.findAll();
+  const polls = await Polls.findAll({
+    include: [
+      {
+        model: Options,
+        include: [
+          {
+            model: Votes
+          }
+        ]
+      }
+    ]
+  });
   return polls;
 };
 
