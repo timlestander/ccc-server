@@ -8,7 +8,7 @@ const getAllUsers = async (req, res) => {
 const getUserById = async (req, res) => {
   const user = await userService.getUserById(req.params.id);
   res.send(user);
-}
+};
 
 const updateUser = async (req, res) => {
   //TODO sanity check body
@@ -16,7 +16,8 @@ const updateUser = async (req, res) => {
   res.send({
     success: true
   });
-}
+};
+
 module.exports = {
   getAllUsers,
   getUserById,
