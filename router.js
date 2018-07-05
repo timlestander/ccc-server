@@ -12,7 +12,7 @@ module.exports.set = app => {
   // Protected routes
   app.get('/users', authMiddleware.checkAuth, userController.getAllUsers);
   app.get('/user/:id', authMiddleware.checkAuth, userController.getUserById);
-  app.put('/user', userController.updateUser);
+  app.put('/users', userController.updateUser);
   app.get('/polls', authMiddleware.checkAuth, pollController.getAllPolls);
   app.post('/poll', authMiddleware.checkAuth, pollController.createPoll);
   app.get('/poll/:id', authMiddleware.checkAuth, pollController.getPollById);
